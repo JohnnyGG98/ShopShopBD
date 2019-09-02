@@ -1,5 +1,5 @@
 
-CREATE TABLE "personas"(
+CREATE TABLE "Personas"(
   id_persona BIGSERIAL NOT NULL,
   per_primer_nombre character varying(75) NOT NULL,
   per_segundo_nombre character varying(75) DEFAULT '',
@@ -11,14 +11,14 @@ CREATE TABLE "personas"(
   CONSTRAINT persona_pk PRIMARY KEY("id_persona")
 ) WITH (OIDS = FALSE);
 
-CREATE TABLE "vendedores" (
+CREATE TABLE "Vendedores" (
   id_vendedor BIGSERIAL NOT NULL,
   id_persona BIGINT NOT NULL,
   vend_max_productos INT NOT NULL,
   CONSTRAINT vendedor_pk PRIMARY KEY ("id_vendedor")
 ) WITH (OIDS = FALSE);
 
-CREATE TABLE "locales" (
+CREATE TABLE "Locales" (
   id_local BIGSERIAL NOT NULL,
   id_vendedor BIGINT NOT NULL,
   loc_correo character varying(50) NOT NULL,

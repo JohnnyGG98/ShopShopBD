@@ -1,4 +1,4 @@
-CREATE TABLE "admins"(
+CREATE TABLE "Admins"(
   id_admin BIGSERIAL NOT NULL,
   adm_user CHARACTER VARYING(255) NOT NULL,
   adm_pass BYTEA NOT NULL,
@@ -6,7 +6,7 @@ CREATE TABLE "admins"(
   CONSTRAINT admin_pk PRIMARY KEY ("id_admin")
 ) WITH (OIDS = FALSE);
 
-CREATE TABLE "historial_rutas_admin"(
+CREATE TABLE "HistorialRutasAdmin"(
   id_historial_ruta_admin BIGSERIAL NOT NULL,
   id_admin BIGINT NOT NULL,
   hiru_ruta CHARACTER VARYING (255) NOT NULL,
@@ -14,15 +14,15 @@ CREATE TABLE "historial_rutas_admin"(
   CONSTRAINT historial_ruta_pk PRIMARY KEY ("id_historial_ruta")
 ) WITH (OIDS = FALSE);
 
-CREATE TABLE "premisos"(
-	id_premiso BIGSERIAL NOT NULL,
+CREATE TABLE "Permisos"(
+	id_permiso BIGSERIAL NOT NULL,
 	id_admin BIGINT NOT NULL,
 	id_ruta serial NOT NULL,
 	prem_activo BOOLEAN DEFAULT 'true'
 CONSTRAINT premiso_pk PRIMARY KEY ("id_premiso")
 ) WITH (OIDS = FALSE);
 
-CREATE TABLE "rutas" (
+CREATE TABLE "Rutas" (
   id_ruta serial NOT NULL,
 	rut_url CHARACTER VARYING (255) NOT NULL,
 	rut_activo BOOLEAN NOT NULL,
@@ -30,7 +30,7 @@ CREATE TABLE "rutas" (
   CONSTRAINT ruta_pk PRIMARY KEY ("id_ruta")
 ) WITH (OIDS = FALSE);
 
-CREATE TABLE "clientes_bloqueados"(
+CREATE TABLE "ClientesBloqueados"(
 	id_cliente_bloqueado BIGSERIAL NOT NULL,
   id_cliente BIGINT NOT NULL,
 	clbl_fecha_bloqueo TIMESTAMP DEFAULT,
@@ -40,7 +40,7 @@ CREATE TABLE "clientes_bloqueados"(
 ) WITH (OIDS = FALSE);
 
 
-CREATE TABLE "comentarios_bloqueados"(
+CREATE TABLE "ComentariosBloqueados"(
   id_comentario_bloqueado BIGSERIAL NOT NULL,
   id_comentario BIGINT NOT NULL,
   cobl_fecha_bloqueo  TIMESTAMP DEFAULT now(),
