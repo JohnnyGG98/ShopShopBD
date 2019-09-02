@@ -1,6 +1,7 @@
 CREATE TABLE "Productos"(
   id_producto BIGSERIAL NOT NULL,
-  id_venderdor BIGINT NOT NULL,
+  id_vendedor BIGINT NOT NULL,
+  id_marcar BIGINT NOT NULL,
   prod_nombre CHARACTER VARYING(255) NOT NULL,
   prod_fecha_ingreso TIMESTAMP DEFAULT, 'SN'
   prod_stock_total int NOT NULL,
@@ -12,6 +13,30 @@ CREATE TABLE "Productos"(
   prod_activo BOOLEAN DEFAULT 'true'
   CONSTRAINT productos_pk PRIMARY KEY ("id_productos")
 ) WITH (OIDS = FALSE);
+
+CREATE TABLE "ProductosCategorias"(
+  id_producto_categoria BIGSERIAL NOT NULL,
+  id_producto BIGINT NOT NULL,
+  id_categoria BIGINT NOT NULL,
+  prca_activo BOOLEAN DEFAULT 'true',
+  CONSTRAINT producto_categoria_pk PRIMARY KEY("id_producto_categoria")
+) WITH (OIDS = FALSE);
+
+CREATE TABLE "Marcas"(
+  id_marca BIGSERIAL NOT NULL,
+  marc_nombre character varying(150) NOT NULL,
+  marc_codigo character varying(50) NOT NULL,
+  marc_actvio BOOLEAN DEFAULT 'true',
+  CONSTRAINT marca_pl PRIMARY KEY("id_marca")
+) WITH (OIDS = FALSE);
+
+CREATE TABLE "ProductosStock" (
+  id_producto_stock BIGSERIAL NOT NULL,
+  id_producto BIGINT NOT NULL,
+  prst_cantidad INT NOT NULL,
+  prst_fecha_ingreso TIMESTAMP NOT NULL DEFAULT now(),
+  CONSTRAINT producto_stock_pk PRIMARY KEY("id_producto_stock")
+)
 
 CREATE TABLE "Imagenes"(
   id_imagen BIGSERIAL NOT NULL,
@@ -33,4 +58,12 @@ CREATE TABLE "Unidades" (
   unid_nombre character varying(100) NOT NULL,
   unid_codigo character varying(10) NOT NULL,
   CONSTRAINT unidad_pk PRIMARY KEY ("id_unidad")
+) WITH (OIDS = FALSE);
+
+CREATE TABLE "Comentarios" (
+  id_comentario BIGSERIAL NOT NULL,
+  id_producto BIGINT NOT NULL,
+  comentario character varying(255),
+  com_activo BOOLEAN DEFAULT 'true',
+  CONSTRAINT comentario_pk PRIMARY KEY ("id_comentario")
 ) WITH (OIDS = FALSE);

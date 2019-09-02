@@ -30,6 +30,7 @@ CREATE TABLE "Rutas" (
   CONSTRAINT ruta_pk PRIMARY KEY ("id_ruta")
 ) WITH (OIDS = FALSE);
 
+
 CREATE TABLE "ClientesBloqueados"(
 	id_cliente_bloqueado BIGSERIAL NOT NULL,
   id_cliente BIGINT NOT NULL,
@@ -39,6 +40,14 @@ CREATE TABLE "ClientesBloqueados"(
 	CONSTRAINT cliente_bloqueado_pk PRIMARY KEY ("id_cliente_bloqueado")
 ) WITH (OIDS = FALSE);
 
+CREATE TABLE "VendedoresBloqueados"(
+	id_vendedor_bloqueado BIGSERIAL NOT NULL,
+  id_vendedor BIGINT NOT NULL,
+	vebl_fecha_bloqueo TIMESTAMP DEFAULT,
+	vebl_motivo_bloqueo CHARACTER VARYING(300) NOT NULL,
+	vebl_activo BOOLEAN DEFAULT 'true',
+	CONSTRAINT vendedor_bloqueado_pk PRIMARY KEY ("id_vendedor_bloqueado")
+) WITH (OIDS = FALSE);
 
 CREATE TABLE "ComentariosBloqueados"(
   id_comentario_bloqueado BIGSERIAL NOT NULL,
@@ -48,3 +57,21 @@ CREATE TABLE "ComentariosBloqueados"(
   cobl_activo BOOLEAN DEFAULT 'true',
   CONSTRAINT comentarios_bloqueados_pk PRIMARY KEY ("id_comentarios_bloqueados")
 ) WITH (OIDS = FALSE);
+
+CREATE TABLE "HistorialProductosVisitas"(
+  id_historial_producto_visita BIGSERIAL NOT NULL,
+  id_cliente BIGINT NOT NULL,
+  id_producto BIGINT NOT NULL,
+  hprv_fecha_ingreso TIMESTAMP NOT NULL DEFAULT now(),
+  hprv_activo BOOLEAN NOT NULL DEFAULT 'true',
+  CONSTRAINT historial_producto_visita_pk PRIMARY KEY ("id_historial_producto_visita")
+) WITH (OIDS = FALSE);
+
+CREATE TABLE "HistorialRutasVisitas"(
+  id_historial_ruta_visitas BIGSERIAL NOT NULL,
+  id_cliente BIGINT NOT NULL,
+  hruv_ruta character varying(255) NOT NULL,
+  hruv_fecha_ingreso TIMESTAMP NOT NULL DEFAULT now(),
+  hruv_activo BOOLEAN NOT NULL DEFAULT 'true',
+  CONSTRAINT historial_ruta_visita_pk PRIMARY KEY ("id_historial_ruta_visitas")
+)
