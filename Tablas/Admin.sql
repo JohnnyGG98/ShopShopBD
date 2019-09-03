@@ -10,7 +10,7 @@ CREATE TABLE "HistorialRutasAdmin"(
   id_historial_ruta_admin BIGSERIAL NOT NULL,
   id_admin BIGINT NOT NULL,
   hiru_ruta CHARACTER VARYING (255) NOT NULL,
-	hiru_activo BOOLEAN DEFAULT 'true'
+	hiru_activo BOOLEAN DEFAULT 'true',
   CONSTRAINT historial_ruta_pk PRIMARY KEY ("id_historial_ruta")
 ) WITH (OIDS = FALSE);
 
@@ -18,15 +18,14 @@ CREATE TABLE "Permisos"(
 	id_permiso BIGSERIAL NOT NULL,
 	id_admin BIGINT NOT NULL,
 	id_ruta serial NOT NULL,
-	prem_activo BOOLEAN DEFAULT 'true'
-CONSTRAINT premiso_pk PRIMARY KEY ("id_premiso")
+	prem_activo BOOLEAN DEFAULT 'true',
+CONSTRAINT premiso_pk PRIMARY KEY ("id_permiso")
 ) WITH (OIDS = FALSE);
 
 CREATE TABLE "Rutas" (
   id_ruta serial NOT NULL,
 	rut_url CHARACTER VARYING (255) NOT NULL,
-	rut_activo BOOLEAN NOT NULL,
-	rut_activo BOOLEAN DEFAULT 'true',
+	rut_activo BOOLEAN NOT NULL DEFAULT 'true',
   CONSTRAINT ruta_pk PRIMARY KEY ("id_ruta")
 ) WITH (OIDS = FALSE);
 
@@ -34,7 +33,7 @@ CREATE TABLE "Rutas" (
 CREATE TABLE "ClientesBloqueados"(
 	id_cliente_bloqueado BIGSERIAL NOT NULL,
   id_cliente BIGINT NOT NULL,
-	clbl_fecha_bloqueo TIMESTAMP DEFAULT,
+	clbl_fecha_bloqueo TIMESTAMP NOT NULL DEFAULT now(),
 	clbl_motivo_bloqueo CHARACTER VARYING(300) NOT NULL,
 	clbl_activo BOOLEAN DEFAULT 'true',
 	CONSTRAINT cliente_bloqueado_pk PRIMARY KEY ("id_cliente_bloqueado")
@@ -43,7 +42,7 @@ CREATE TABLE "ClientesBloqueados"(
 CREATE TABLE "VendedoresBloqueados"(
 	id_vendedor_bloqueado BIGSERIAL NOT NULL,
   id_vendedor BIGINT NOT NULL,
-	vebl_fecha_bloqueo TIMESTAMP DEFAULT,
+	vebl_fecha_bloqueo TIMESTAMP NOT NULL DEFAULT now(),
 	vebl_motivo_bloqueo CHARACTER VARYING(300) NOT NULL,
 	vebl_activo BOOLEAN DEFAULT 'true',
 	CONSTRAINT vendedor_bloqueado_pk PRIMARY KEY ("id_vendedor_bloqueado")
