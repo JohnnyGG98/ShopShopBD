@@ -44,3 +44,27 @@ Se cambió el nombre del atributo de asignación para la clave primaria, ya que 
 ```sql
   CONSTRAINT comentarios_bloqueados_pk PRIMARY KEY ("id_comentario_bloqueado")
   ```
+**03/09/2019**
+
+Se corrigió un error al momento de ejecutar el script en la BDShopShop, faltaba una coma ,
+
+
+```sql
+  prod_activo BOOLEAN DEFAULT 'true',
+  CONSTRAINT productos_pk PRIMARY KEY ("id_producto")
+) WITH (OIDS = FALSE);
+```
+
+Se corrigió un error, faltaba agregar el with(oids=false);
+
+```sql
+  prst_fecha_ingreso TIMESTAMP NOT NULL DEFAULT now(),
+  CONSTRAINT producto_stock_pk PRIMARY KEY("id_producto_stock")
+)WITH (OIDS = FALSE);
+```
+
+Se corrigió error en la fecha de ingreso de la tabla Productos
+
+```sql
+prod_fecha_ingreso TIMESTAMP DEFAULT now(),
+```
