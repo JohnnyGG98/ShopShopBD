@@ -68,3 +68,11 @@ Se corrigió error en la fecha de ingreso de la tabla Productos
 ```sql
 prod_fecha_ingreso TIMESTAMP DEFAULT now(),
 ```
+
+**04/09/2019**
+
+Se corrigio el nombre del atributo en la tabla de Marcas, para evitar futuros errores.
+
+```sql
+  marc_activo BOOLEAN DEFAULT 'true',
+  ```

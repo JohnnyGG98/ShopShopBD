@@ -31,7 +31,7 @@ CREATE TABLE "Marcas"
   id_marca BIGSERIAL NOT NULL,
   marc_nombre character varying(150) NOT NULL,
   marc_codigo character varying(50) NOT NULL,
-  marc_actvio BOOLEAN DEFAULT 'true',
+  marc_activo BOOLEAN DEFAULT 'true',
   CONSTRAINT marca_pl PRIMARY KEY("id_marca")
 )
 WITH (OIDS = FALSE);
