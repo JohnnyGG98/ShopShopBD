@@ -8,6 +8,7 @@ CREATE TABLE "Personas"(
   per_correo character varying(50) NOT NULL,
   per_sexo character varying(50) NOT NULL,
   per_fecha_registro TIMESTAMP DEFAULT now(),
+  per_activo BOOLEAN DEFAULT 'true',
   CONSTRAINT persona_pk PRIMARY KEY("id_persona")
 ) WITH (OIDS = FALSE);
 
@@ -15,6 +16,7 @@ CREATE TABLE "Vendedores" (
   id_vendedor BIGSERIAL NOT NULL,
   id_persona BIGINT NOT NULL,
   vend_max_productos INT NOT NULL,
+  vend_activo BOOLEAN DEFAULT 'true',
   CONSTRAINT vendedor_pk PRIMARY KEY ("id_vendedor")
 ) WITH (OIDS = FALSE);
 
@@ -24,6 +26,7 @@ CREATE TABLE "Locales" (
   loc_correo character varying(50) NOT NULL,
   loc_calle_principal character varying(150) NOT NULL,
   loc_calle_secundaria character varying(150) NOT NULL,
+  loc_activo BOOLEAN DEFAULT 'true',
   CONSTRAINT local_pk PRIMARY KEY ("id_local")
 ) WITH (OIDS = FALSE);
 
@@ -31,6 +34,7 @@ CREATE TABLE "Clientes"(
   id_cliente BIGSERIAL NOT NULL,
   id_persona BIGINT NOT NULL,
   cli_fecha_nacimiento DATE NOT NULL,
+  cli_activo BOOLEAN DEFAULT 'true',
   CONSTRAINT cliente_pk PRIMARY KEY ("id_cliente")
 ) WITH (OIDS = FALSE);
 

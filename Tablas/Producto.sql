@@ -42,6 +42,7 @@ CREATE TABLE "ProductosStock"
   id_producto BIGINT NOT NULL,
   prst_cantidad INT NOT NULL,
   prst_fecha_ingreso TIMESTAMP NOT NULL DEFAULT now(),
+  prst_activo BOOLEAN DEFAULT 'true',
   CONSTRAINT producto_stock_pk PRIMARY KEY("id_producto_stock")
 )
 WITH (OIDS = FALSE);
@@ -70,6 +71,7 @@ CREATE TABLE "Unidades"
   id_unidad BIGSERIAL NOT NULL,
   unid_nombre character varying(100) NOT NULL,
   unid_codigo character varying(10) NOT NULL,
+  unid_activo BOOLEAN DEFAULT 'true',
   CONSTRAINT unidad_pk PRIMARY KEY ("id_unidad")
 )
 WITH (OIDS = FALSE);
