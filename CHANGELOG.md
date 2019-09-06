@@ -76,3 +76,10 @@ Se corrigio el nombre del atributo en la tabla de Marcas, para evitar futuros er
 ```sql
   marc_activo BOOLEAN DEFAULT 'true',
   ```
+**05/09/2019**
+
+Agregué que el siguiente atributo no aceptara nulls
+
+```sql
+cobl_fecha_bloqueo  TIMESTAMP DEFAULT now() NOT NULL,
+```
