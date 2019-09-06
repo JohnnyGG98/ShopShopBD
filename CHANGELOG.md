@@ -68,3 +68,11 @@ Se corrigió error en la fecha de ingreso de la tabla Productos
 ```sql
 prod_fecha_ingreso TIMESTAMP DEFAULT now(),
 ```
+
+**05/09/2019**
+
+Agregué que el siguiente atributo no aceptara nulls
+
+```sql
+cobl_fecha_bloqueo  TIMESTAMP DEFAULT now() NOT NULL,
+```

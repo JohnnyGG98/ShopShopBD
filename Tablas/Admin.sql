@@ -51,7 +51,7 @@ CREATE TABLE "VendedoresBloqueados"(
 CREATE TABLE "ComentariosBloqueados"(
   id_comentario_bloqueado BIGSERIAL NOT NULL,
   id_comentario BIGINT NOT NULL,
-  cobl_fecha_bloqueo  TIMESTAMP DEFAULT now(),
+  cobl_fecha_bloqueo  TIMESTAMP DEFAULT now() NOT NULL,
   cobl_motivo_bloqueo CHARACTER VARYING (255) NOT NULL,
   cobl_activo BOOLEAN DEFAULT 'true',
   CONSTRAINT comentarios_bloqueados_pk PRIMARY KEY ("id_comentarios_bloqueados")
