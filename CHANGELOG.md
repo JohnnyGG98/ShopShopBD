@@ -104,3 +104,8 @@ Se actualizaron las foraneas de las tablas de Vendedores y Clientes
 -- Tabla Vendedores y Clientes
 id_usuario BIGINT NOT NULL
 ```
+
+Se agrego la columna para agregar las imagenes de los productos
+```sql
+ima-url character varying(255)
+```
