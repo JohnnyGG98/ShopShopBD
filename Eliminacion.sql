@@ -91,7 +91,7 @@ BEGIN
   SET propiedad_foto_elim = new.propiedad_elim
   WHERE id_propiedad = old.id_propiedad;
 
-  UPDATE public."Captadores"
+  UPDATE public."Captadore"
   SET captador_elim = new.propiedad_elim
   WHERE id_propiedad = old.id_propiedad;
 
