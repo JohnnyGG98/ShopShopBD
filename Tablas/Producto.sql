@@ -51,6 +51,7 @@ CREATE TABLE "Imagenes"
 (
   id_imagen BIGSERIAL NOT NULL,
   id_producto BIGINT NOT NULL,
+  ima-url character varying(255),
   ima_activo BOOLEAN DEFAULT 'true',
   CONSTRAINT imagen_pk PRIMARY KEY ("id_imagen")
 )
@@ -85,6 +86,3 @@ CREATE TABLE "Comentarios"
   CONSTRAINT comentario_pk PRIMARY KEY ("id_comentario")
 )
 WITH (OIDS = FALSE);
-
-
-
