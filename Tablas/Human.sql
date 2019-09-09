@@ -11,9 +11,17 @@ CREATE TABLE "Personas"(
   CONSTRAINT persona_pk PRIMARY KEY("id_persona")
 ) WITH (OIDS = FALSE);
 
+CREATE TABLE "Usuarios"(
+  id_usuario BIGSERIAL NOT NULL,
+  id_persona BIGINT NOT NULL,
+  user_nick character varying(50) NOT NULL UNIQUE,
+  user_pass bytea NOT NULL,
+  CONSTRAINT usuario_pk PRIMARY KEY("id_usuario")
+) WITH (OIDS = FALSE);
+
 CREATE TABLE "Vendedores" (
   id_vendedor BIGSERIAL NOT NULL,
-  id_persona BIGINT NOT NULL,
+  id_usuario BIGINT NOT NULL,
   vend_max_productos INT NOT NULL,
   CONSTRAINT vendedor_pk PRIMARY KEY ("id_vendedor")
 ) WITH (OIDS = FALSE);
@@ -29,7 +37,7 @@ CREATE TABLE "Locales" (
 
 CREATE TABLE "Clientes"(
   id_cliente BIGSERIAL NOT NULL,
-  id_persona BIGINT NOT NULL,
+  id_usuario BIGINT NOT NULL,
   cli_fecha_nacimiento DATE NOT NULL,
   CONSTRAINT cliente_pk PRIMARY KEY ("id_cliente")
 ) WITH (OIDS = FALSE);
