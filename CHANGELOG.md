@@ -83,3 +83,24 @@ Agregué que el siguiente atributo no aceptara nulls
 ```sql
 cobl_fecha_bloqueo  TIMESTAMP DEFAULT now() NOT NULL,
 ```
+
+**09/09/2019**
+
+Nueva tabla para poder crear usuarios para el sistema, aqui unicamente se almacenaran los vendedores y clientes.
+
+```sql
+CREATE TABLE "Usuarios"(
+  id_usuario BIGSERIAL NOT NULL,
+  id_persona BIGINT NOT NULL,
+  user_nick character varying(50) NOT NULL UNIQUE,
+  user_pass bytea NOT NULL,
+  CONSTRAINT usuario_pk PRIMARY KEY("id_usuario")
+) WITH (OIDS = FALSE);
+```
+
+Se actualizaron las foraneas de las tablas de Vendedores y Clientes
+
+```sql
+-- Tabla Vendedores y Clientes
+id_usuario BIGINT NOT NULL
+```
