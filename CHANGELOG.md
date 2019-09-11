@@ -109,3 +109,12 @@ Se agrego la columna para agregar las imagenes de los productos
 ```sql
 ima-url character varying(255)
 ```
+
+****
+
+Quite una "r" demas en id_marca de producto y se borro la columna prdo_marca.
+
+```sql
+id_marcar BIGINT NOT NULL
+prod_marca CHARACTER VARYING(50) NOT NULL
+```

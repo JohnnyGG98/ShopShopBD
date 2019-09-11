@@ -2,11 +2,10 @@ CREATE TABLE "Productos"
 (
   id_producto BIGSERIAL NOT NULL,
   id_vendedor BIGINT NOT NULL,
-  id_marcar BIGINT NOT NULL,
+  id_marca BIGINT NOT NULL,
   prod_nombre CHARACTER VARYING(255) NOT NULL,
   prod_fecha_ingreso TIMESTAMP DEFAULT now(),
   prod_stock_total int NOT NULL,
-  prod_marca CHARACTER VARYING(50) NOT NULL,
   prod_precio_venta numeric NOT NULL,
   prod_descripcion TEXT NOT NULL,
   prod_restriccion_edad_max int NOT NULL,
