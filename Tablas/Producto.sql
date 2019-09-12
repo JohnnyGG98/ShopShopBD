@@ -3,6 +3,7 @@ CREATE TABLE "Productos"
   id_producto BIGSERIAL NOT NULL,
   id_vendedor BIGINT NOT NULL,
   id_marca BIGINT NOT NULL,
+  id_unidad BIGINT NOT NULL,
   prod_nombre CHARACTER VARYING(255) NOT NULL,
   prod_fecha_ingreso TIMESTAMP DEFAULT now(),
   prod_stock_total int NOT NULL,
@@ -50,7 +51,7 @@ CREATE TABLE "Imagenes"
 (
   id_imagen BIGSERIAL NOT NULL,
   id_producto BIGINT NOT NULL,
-  ima-url character varying(255),
+  ima_url character varying(255),
   ima_activo BOOLEAN DEFAULT 'true',
   CONSTRAINT imagen_pk PRIMARY KEY ("id_imagen")
 )

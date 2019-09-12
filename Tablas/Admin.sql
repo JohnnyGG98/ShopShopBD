@@ -11,7 +11,7 @@ CREATE TABLE "HistorialRutasAdmin"(
   id_admin BIGINT NOT NULL,
   hiru_ruta CHARACTER VARYING (255) NOT NULL,
 	hiru_activo BOOLEAN DEFAULT 'true',
-  CONSTRAINT historial_ruta_pk PRIMARY KEY ("id_historial_ruta")
+  CONSTRAINT historial_ruta_pk PRIMARY KEY ("id_historial_ruta_admin")
 ) WITH (OIDS = FALSE);
 
 CREATE TABLE "Permisos"(
@@ -54,7 +54,7 @@ CREATE TABLE "ComentariosBloqueados"(
   cobl_fecha_bloqueo  TIMESTAMP DEFAULT now() NOT NULL,
   cobl_motivo_bloqueo CHARACTER VARYING (255) NOT NULL,
   cobl_activo BOOLEAN DEFAULT 'true',
-  CONSTRAINT comentarios_bloqueados_pk PRIMARY KEY ("id_comentarios_bloqueados")
+  CONSTRAINT comentarios_bloqueados_pk PRIMARY KEY ("id_comentario_bloqueado")
 ) WITH (OIDS = FALSE);
 
 CREATE TABLE "HistorialProductosVisitas"(
