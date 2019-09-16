@@ -1,5 +1,6 @@
 CREATE TABLE "Admins"(
   id_admin BIGSERIAL NOT NULL,
+  id_rol_admin INT NOT NULL,
   adm_user CHARACTER VARYING(255) NOT NULL,
   adm_pass BYTEA NOT NULL,
   adm_activo BOOLEAN DEFAULT 'true',
@@ -73,4 +74,20 @@ CREATE TABLE "HistorialRutasVisitas"(
   hruv_fecha_ingreso TIMESTAMP NOT NULL DEFAULT now(),
   hruv_activo BOOLEAN NOT NULL DEFAULT 'true',
   CONSTRAINT historial_ruta_visita_pk PRIMARY KEY ("id_historial_ruta_visitas")
-)
+) WITH (OIDS = FALSE);
+
+
+CREATE TABLE "RolesAdmin"(
+  id_rol_admin BIGSERIAL NOT NULL,
+  rlad_nombre CHARACTER VARYING(25),
+  rlad_activo BOOLEAN NOT NULL DEFAULT 'true',
+  CONSTRAINT rol_admin_pk PRIMARY KEY ("id_rol_admin")
+) WITH (OIDS = FALSE);
+
+CREATE TABLE "RolesRutas"(
+  id_rol_ruta SERIAL NOT NULL,
+  id_rol_admin INT NOT NULL,
+  id_ruta INT NOT NULL,
+  roru_activo BOOLEAN NOT NULL DEFAULT 'true',
+  CONSTRAINT rol_ruta_pk PRIMARY KEY ("id_rol_ruta")
+) WITH (OIDS = FALSE);

@@ -24,6 +24,7 @@ CREATE TABLE "Vendedores" (
   id_vendedor BIGSERIAL NOT NULL,
   id_usuario BIGINT NOT NULL,
   vend_max_productos INT NOT NULL,
+  vend_descripcion TEXT NOT NULL DEFAULT '',
   vend_activo BOOLEAN DEFAULT 'true',
   CONSTRAINT vendedor_pk PRIMARY KEY ("id_vendedor")
 ) WITH (OIDS = FALSE);

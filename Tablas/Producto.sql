@@ -4,13 +4,17 @@ CREATE TABLE "Productos"
   id_vendedor BIGINT NOT NULL,
   id_marca BIGINT NOT NULL,
   id_unidad BIGINT NOT NULL,
+  id_linea INT NOT NULL,
   prod_nombre CHARACTER VARYING(255) NOT NULL,
   prod_fecha_ingreso TIMESTAMP DEFAULT now(),
-  prod_stock_total int NOT NULL,
-  prod_precio_venta numeric NOT NULL,
+  prod_stock_min INT NOT NULL,
+  prod_stock_max INT NOT NULL,
+  prod_stock_total INT NOT NULL,
+  prod_precio_venta NUMERIC NOT NULL,
   prod_descripcion TEXT NOT NULL,
   prod_restriccion_edad_max int NOT NULL,
   prod_restriccion_edad_min int NOT NULL,
+  prod_tiene_iva BOOLEAN NOT NULL DEFAULT 'true',
   prod_activo BOOLEAN DEFAULT 'true',
   CONSTRAINT productos_pk PRIMARY KEY ("id_producto")
 )
@@ -86,3 +90,11 @@ CREATE TABLE "Comentarios"
   CONSTRAINT comentario_pk PRIMARY KEY ("id_comentario")
 )
 WITH (OIDS = FALSE);
+
+CREATE TABLE "Lineas" (
+  id_linea SERIAL NOT NULL,
+  lin_nombre CHARACTER VARYING(100) NOT NULL,
+  lin_codigo CHARACTER VARYING(20) NOT NULL,
+  lin_activo BOOLEAN NOT NULL DEFAULT 'true',
+  CONSTRAINT linea_pk PRIMARY KEY ("id_linea")
+) WITH (OIDS = FALSE);

@@ -9,6 +9,10 @@ ALTER TABLE "Productos" ADD CONSTRAINT "producto_unidad" FOREIGN KEY ("id_unidad
 REFERENCES "Unidades"("id_unidad")
 ON UPDATE CASCADE ON DELETE CASCADE;
 
+ALTER TABLE "Productos" ADD CONSTRAINT "producto_linea" FOREIGN KEY ("id_linea")
+REFERENCES "Lineas"("id_linea")
+ON UPDATE CASCADE ON DELETE CASCADE;
+
 
 
 ALTER TABLE "ProductosCategorias" ADD CONSTRAINT

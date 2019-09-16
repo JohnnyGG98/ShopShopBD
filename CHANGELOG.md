@@ -5,7 +5,7 @@
 Se agrego una columna, para poder guardar el numero de productos que vendio.
 
 ```sql
-ALTER TABLE "vendedores" ADD COLUMN "vend_general"
+ALTER TABLE "Vendedores" ADD COLUMN "vend_general"
 TYPE INT NOT NULL DEFAULT '0';
 ```
 
@@ -125,4 +125,59 @@ Agregamos la relacion de unidad con productos.
 
 ```sql
 id_unidad BIGINT NOT NULL,
+```
+
+**16/09/2019**
+
+Agregamos atributos en productos, debido a las recomendaciones.
+
+```sql
+  // Para saber si tiene iva o no
+  ALTER TABLE "Productos" ADD COLUMN "prod_tiene_iva" TYPE BOOLEAN NOT NULL DEFAULT 'true';
+  // Agregamos la columna para saber a que linea pertenecen
+  ALTER TABLE "Productos" ADD COLUMN "id_linea" TYPE INT NOT NULL;
+  // Para saber su stock maximo
+  ALTER TABLE "Productos" ADD COLUMN "prod_stock_max" TYPE INT NOT NULL;
+  // Para saber el stock minimo
+  ALTER TABLE "Productos" ADD COLUMN "prod_stock_min" TYPE INT NOT NULL;  
+```
+
+Creamos una tabla para saber a que linea pertenecen los productos.
+
+```sql
+  CREATE TABLE "Lineas" (
+    id_linea SERIAL NOT NULL,
+    lin_nombre CHARACTER VARYING(100) NOT NULL,
+    lin_codigo CHARACTER VARYING(20) NOT NULL,
+    lin_activo BOOLEAN NOT NULL DEFAULT 'true',
+    CONSTRAINT linea_pk PRIMARY KEY ("id_linea")
+  ) WITH (OIDS = FALSE);
+```
+
+Agregamos una columna para almacenar una descripción del vendedor.
+
+```sql
+  ALTER TABLE "Vendedores" ADD COLUMN "vend_descripcion" TYPE TEXT NOT NULL DEFAULT '';
+```
+
+Roles de usuarios, para trabajar con una libreria de seguridad de Spring  
+
+```sql
+  CREATE TABLE "RolesAdmin"(
+    id_rol_admin SERIAL NOT NULL,
+    rlad_nombre CHARACTER VARYING(25),
+    rlad_activo BOOLEAN NOT NULL DEFAULT 'true',
+    CONSTRAINT rol_admin_pk PRIMARY KEY ("id_rol_admin")
+  ) WITH (OIDS = FALSE);
+
+  CREATE TABLE "RolesRutas"(
+    id_rol_ruta SERIAL NOT NULL,
+    id_rol_admin INT NOT NULL,
+    id_ruta INT NOT NULL,
+    roru_activo BOOLEAN NOT NULL DEFAULT 'true',
+    CONSTRAINT rol_ruta_pk PRIMARY KEY ("id_rol_ruta")
+  ) WITH (OIDS = FALSE);
+
+  // Foranea en la tabla Admins
+  ALTER TABLE "Admins" ADD COLUMN "id_rol_admin" TYPE INT NOT NULL;
 ```
