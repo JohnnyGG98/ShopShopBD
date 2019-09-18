@@ -37,3 +37,7 @@ ALTER TABLE "ProductosDeseados" ADD CONSTRAINT "producto_deseado_cliente" FOREIG
 
 ALTER TABLE "ProductosDeseados" ADD CONSTRAINT "producto_deseado_producto" FOREIGN KEY ("id_producto") REFERENCES
 "Productos"("id_producto") ON UPDATE CASCADE ON DELETE CASCADE;
+
+
+ALTER TABLE "Personas" ADD CONSTRAINT "persona_tipo_identificacion" FOREIGN KEY ("id_tipo_identificacion") REFERENCES
+"TiposIdentificacion"("id_tipo_identificacion") ON UPDATE CASCADE ON DELETE CASCADE;

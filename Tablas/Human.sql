@@ -1,5 +1,6 @@
 CREATE TABLE "Personas"(
   id_persona BIGSERIAL NOT NULL,
+  id_tipo_identificacion INT NOT NULL,
   per_primer_nombre character varying(75) NOT NULL,
   per_segundo_nombre character varying(75) DEFAULT '',
   per_primer_apellido character varying(75) NOT NULL,
@@ -80,4 +81,11 @@ CREATE TABLE "ProductosDeseados" (
   prde_fecha_ingreso DATE NOT NULL DEFAULT now(),
   prde_activo BOOLEAN NOT NULL DEFAULT 'true',
   CONSTRAINT producto_deseado_pk PRIMARY KEY("id_producto_deseado")
+) WITH (OIDS = FALSE);
+
+CREATE TABLE "TiposIdentificacion" (
+  id_tipo_identificacion INT NOT NULL,
+  tiid_nombre CHARACTER VARYING(10),
+  tiid_activo BOOLEAN NOT NULL DEFAULT 'true',
+  CONSTRAINT tipo_identificacion_pk PRIMARY KEY("id_tipo_identificacion")
 ) WITH (OIDS = FALSE);

@@ -181,7 +181,6 @@ Roles de usuarios, para trabajar con una libreria de seguridad de Spring
   // Foranea en la tabla Admins
   ALTER TABLE "Admins" ADD COLUMN "id_rol_admin" TYPE INT NOT NULL;
 ```
-<<<<<<< HEAD
 
 **17/09/2019**
 
@@ -220,7 +219,6 @@ CREATE TABLE "TiposTransaccion" (
   CONSTRAINT tipo_transaccion_pk PRIMARY KEY("id_tipo_transaccion")
 ) WITH (OIDS = FALSE);
 ```
-=======
 Se agrega NOT NULL al atributo rlad_nombre de la tabla "RolesAdmin"
 
 ```sql
@@ -231,4 +229,18 @@ Se agrega NOT NULL al atributo rlad_nombre de la tabla "RolesAdmin"
     CONSTRAINT rol_admin_pk PRIMARY KEY ("id_rol_admin")
   ) WITH (OIDS = FALSE);
 ```
->>>>>>> 3f1b442c65cd999045b2fcc56f67a212bcfdfbde
+
+**18/09/2019**
+
+Agregando los tipos de identificacion
+
+```sql
+CREATE TABLE "TiposIdentificacion" (
+  id_tipo_identificacion INT NOT NULL,
+  tiid_nombre CHARACTER VARYING(10),
+  tiid_activo BOOLEAN NOT NULL DEFAULT 'true',
+  CONSTRAINT tipo_identificacion_pk PRIMARY KEY("id_tipo_identificacion")
+) WITH (OIDS = FALSE);
+
+ALTER TABLE "Personas" ADD COLUMN "id_tipo_identificacion" TYPE INT NOT NULL;
+```
