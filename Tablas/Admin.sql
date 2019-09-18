@@ -79,7 +79,7 @@ CREATE TABLE "HistorialRutasVisitas"(
 
 CREATE TABLE "RolesAdmin"(
   id_rol_admin BIGSERIAL NOT NULL,
-  rlad_nombre CHARACTER VARYING(25),
+  rlad_nombre CHARACTER VARYING(25) NOT NULL,
   rlad_activo BOOLEAN NOT NULL DEFAULT 'true',
   CONSTRAINT rol_admin_pk PRIMARY KEY ("id_rol_admin")
 ) WITH (OIDS = FALSE);
