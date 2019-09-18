@@ -181,3 +181,41 @@ Roles de usuarios, para trabajar con una libreria de seguridad de Spring
   // Foranea en la tabla Admins
   ALTER TABLE "Admins" ADD COLUMN "id_rol_admin" TYPE INT NOT NULL;
 ```
+
+**17/09/2019**
+
+Se borro esta tabla, porque ahora es reemplazada por cardex.
+```sql
+CREATE TABLE "ProductosStock" (
+  id_producto_stock BIGSERIAL NOT NULL,
+  id_producto BIGINT NOT NULL,
+  prst_cantidad INT NOT NULL,
+  prst_fecha_ingreso TIMESTAMP NOT NULL DEFAULT now(),
+  prst_activo BOOLEAN DEFAULT 'true',
+  CONSTRAINT producto_stock_pk PRIMARY KEY("id_producto_stock")
+)WITH (OIDS = FALSE);
+
+ALTER TABLE "ProductosStock" ADD CONSTRAINT
+"producto_stock_producto" FOREIGN KEY ("id_producto") REFERENCES "Productos"("id_producto") ON UPDATE CASCADE ON DELETE CASCADE;
+```
+
+Se agregaron dos nuevas tablas para tener seguimiento del producto.
+```sql
+CREATE TABLE "Cardex" (
+  id_cardex BIGSERIAL NOT NULL,
+  id_producto BIGINT NOT NULL,
+  id_tipo_transaccion INT NOT NULL,
+  capr_fecha_ingreso TIMESTAMP NOT NULL DEFAULT now(),
+  capr_num_producto INT NOT NULL,
+  capr_activo BOOLEAN NOT NULL DEFAULT 'true',
+  CONSTRAINT cardex_producto_pk PRIMARY KEY("id_producto_cardex")
+) WITH (OIDS = FALSE);
+
+CREATE TABLE "TiposTransaccion" (
+  id_tipo_transaccion SERIAL NOT NULL,
+  titr_nombre CHARACTER VARYING(20) NOT NULL,
+  titr_codigo CHARACTER VARYING(5) NOT NULL,
+  titr_activo BOOLEAN NOT NULL DEFAULT 'true'
+  CONSTRAINT tipo_transaccion_pk PRIMARY KEY("id_tipo_transaccion")
+) WITH (OIDS = FALSE);
+```

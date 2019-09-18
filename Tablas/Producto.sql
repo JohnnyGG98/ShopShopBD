@@ -40,16 +40,6 @@ CREATE TABLE "Marcas"
 )
 WITH (OIDS = FALSE);
 
-CREATE TABLE "ProductosStock"
-(
-  id_producto_stock BIGSERIAL NOT NULL,
-  id_producto BIGINT NOT NULL,
-  prst_cantidad INT NOT NULL,
-  prst_fecha_ingreso TIMESTAMP NOT NULL DEFAULT now(),
-  prst_activo BOOLEAN DEFAULT 'true',
-  CONSTRAINT producto_stock_pk PRIMARY KEY("id_producto_stock")
-)
-WITH (OIDS = FALSE);
 
 CREATE TABLE "Imagenes"
 (
@@ -97,4 +87,23 @@ CREATE TABLE "Lineas" (
   lin_codigo CHARACTER VARYING(20) NOT NULL,
   lin_activo BOOLEAN NOT NULL DEFAULT 'true',
   CONSTRAINT linea_pk PRIMARY KEY ("id_linea")
+) WITH (OIDS = FALSE);
+
+/* Creando el cardex de productos  */
+CREATE TABLE "Cardex" (
+  id_cardex BIGSERIAL NOT NULL,
+  id_producto BIGINT NOT NULL,
+  id_tipo_transaccion INT NOT NULL,
+  capr_fecha_ingreso TIMESTAMP NOT NULL DEFAULT now(),
+  capr_num_producto INT NOT NULL,
+  capr_activo BOOLEAN NOT NULL DEFAULT 'true',
+  CONSTRAINT cardex_producto_pk PRIMARY KEY("id_producto_cardex")
+) WITH (OIDS = FALSE);
+
+CREATE TABLE "TiposTransaccion" (
+  id_tipo_transaccion SERIAL NOT NULL,
+  titr_nombre CHARACTER VARYING(20) NOT NULL,
+  titr_codigo CHARACTER VARYING(5) NOT NULL,
+  titr_activo BOOLEAN NOT NULL DEFAULT 'true'
+  CONSTRAINT tipo_transaccion_pk PRIMARY KEY("id_tipo_transaccion")
 ) WITH (OIDS = FALSE);

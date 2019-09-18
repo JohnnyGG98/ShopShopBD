@@ -22,12 +22,15 @@ ALTER TABLE "ProductosCategorias" ADD CONSTRAINT
 "producto_categoria_categoria" FOREIGN KEY ("id_categoria") REFERENCES "Categorias"("id_categoria") ON UPDATE CASCADE ON DELETE CASCADE;
 
 
-ALTER TABLE "ProductosStock" ADD CONSTRAINT
-"producto_stock_producto" FOREIGN KEY ("id_producto") REFERENCES "Productos"("id_producto") ON UPDATE CASCADE ON DELETE CASCADE;
-
-
 ALTER TABLE "Imagenes" ADD CONSTRAINT "imagen_producto" FOREIGN KEY ("id_producto") REFERENCES "Productos"("id_producto") ON UPDATE CASCADE ON DELETE CASCADE;
 
 
 ALTER TABLE "Comentarios" ADD CONSTRAINT "comentario_producto" FOREIGN KEY ("id_producto")
 REFERENCES "Productos"("id_producto") ON UPDATE CASCADE ON DELETE CASCADE;
+
+
+ALTER TABLE "Cardex" ADD CONSTRAINT "cardex_producto" FOREIGN KEY ("id_producto")
+REFERENCES "Productos"("id_producto") ON UPDATE CASCADE ON DELETE CASCADE;
+
+ALTER TABLE "Cardex" ADD CONSTRAINT "cardex_tipo_transaccion" FOREIGN KEY ("id_tipo_transaccion")
+REFERENCES "TiposTransaccion"("id_tipo_transaccion") ON UPDATE CASCADE ON DELETE CASCADE;
