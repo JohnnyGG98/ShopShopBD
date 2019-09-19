@@ -1,4 +1,9 @@
-CREATE TABLE "Productos"
+-- Esquema
+CREATE SCHEMA "producto";
+
+-- Tablas
+
+CREATE TABLE producto."Productos"
 (
   id_producto BIGSERIAL NOT NULL,
   id_vendedor BIGINT NOT NULL,
@@ -20,7 +25,7 @@ CREATE TABLE "Productos"
 )
 WITH (OIDS = FALSE);
 
-CREATE TABLE "ProductosCategorias"
+CREATE TABLE producto."ProductosCategorias"
 (
   id_producto_categoria BIGSERIAL NOT NULL,
   id_producto BIGINT NOT NULL,
@@ -30,7 +35,7 @@ CREATE TABLE "ProductosCategorias"
 )
 WITH (OIDS = FALSE);
 
-CREATE TABLE "Marcas"
+CREATE TABLE producto."Marcas"
 (
   id_marca BIGSERIAL NOT NULL,
   marc_nombre character varying(150) NOT NULL,
@@ -41,7 +46,7 @@ CREATE TABLE "Marcas"
 WITH (OIDS = FALSE);
 
 
-CREATE TABLE "Imagenes"
+CREATE TABLE producto."Imagenes"
 (
   id_imagen BIGSERIAL NOT NULL,
   id_producto BIGINT NOT NULL,
@@ -51,7 +56,7 @@ CREATE TABLE "Imagenes"
 )
 WITH (OIDS = FALSE);
 
-CREATE TABLE "Categorias"
+CREATE TABLE producto."Categorias"
 (
   id_categoria BIGSERIAL NOT NULL,
   cat_nombre character varying(50) NOT NULL,
@@ -61,7 +66,7 @@ CREATE TABLE "Categorias"
 )
 WITH (OIDS = FALSE);
 
-CREATE TABLE "Unidades"
+CREATE TABLE producto."Unidades"
 (
   id_unidad BIGSERIAL NOT NULL,
   unid_nombre character varying(100) NOT NULL,
@@ -71,7 +76,7 @@ CREATE TABLE "Unidades"
 )
 WITH (OIDS = FALSE);
 
-CREATE TABLE "Comentarios"
+CREATE TABLE producto."Comentarios"
 (
   id_comentario BIGSERIAL NOT NULL,
   id_producto BIGINT NOT NULL,
@@ -81,7 +86,7 @@ CREATE TABLE "Comentarios"
 )
 WITH (OIDS = FALSE);
 
-CREATE TABLE "Lineas" (
+CREATE TABLE producto."Lineas" (
   id_linea SERIAL NOT NULL,
   lin_nombre CHARACTER VARYING(100) NOT NULL,
   lin_codigo CHARACTER VARYING(20) NOT NULL,
@@ -90,7 +95,7 @@ CREATE TABLE "Lineas" (
 ) WITH (OIDS = FALSE);
 
 /* Creando el cardex de productos  */
-CREATE TABLE "Cardex" (
+CREATE TABLE producto."Cardex" (
   id_cardex BIGSERIAL NOT NULL,
   id_producto BIGINT NOT NULL,
   id_tipo_transaccion INT NOT NULL,
@@ -100,7 +105,7 @@ CREATE TABLE "Cardex" (
   CONSTRAINT cardex_producto_pk PRIMARY KEY("id_producto_cardex")
 ) WITH (OIDS = FALSE);
 
-CREATE TABLE "TiposTransaccion" (
+CREATE TABLE producto."TiposTransaccion" (
   id_tipo_transaccion SERIAL NOT NULL,
   titr_nombre CHARACTER VARYING(20) NOT NULL,
   titr_codigo CHARACTER VARYING(5) NOT NULL,

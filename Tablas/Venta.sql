@@ -1,4 +1,9 @@
-CREATE TABLE "Ventas"(
+-- Esquema
+CREATE SCHEMA "venta";
+
+-- Tablas
+
+CREATE TABLE venta."Ventas"(
   id_venta BIGSERIAL NOT NULL,
   id_cliente BIGINT NOT NULL,
   vent_cliente_identificacion CHARACTER VARYING(20) NOT NULL DEFAULT '0000000000',
@@ -15,7 +20,7 @@ CREATE TABLE "Ventas"(
   CONSTRAINT venta_pk PRIMARY KEY("id_venta")
 ) WITH (OIDS = FALSE);
 
-CREATE TABLE "DetalleVenta" (
+CREATE TABLE venta."DetalleVenta" (
   id_detalle_venta BIGSERIAL NOT NULL,
   id_venta BIGINT NOT NULL,
   id_producto BIGINT NOT NULL,

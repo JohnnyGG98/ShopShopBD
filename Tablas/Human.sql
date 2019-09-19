@@ -1,4 +1,9 @@
-CREATE TABLE "Personas"(
+-- Esquema
+CREATE SCHEMA "human";
+
+-- Tablas
+
+CREATE TABLE human."Personas"(
   id_persona BIGSERIAL NOT NULL,
   id_usuario INT NOT NULL,
   id_tipo_identificacion INT NOT NULL,
@@ -15,7 +20,7 @@ CREATE TABLE "Personas"(
 ) WITH (OIDS = FALSE);
 
 
-CREATE TABLE "Vendedores" (
+CREATE TABLE human."Vendedores" (
   id_vendedor BIGSERIAL NOT NULL,
   id_persona BIGINT NOT NULL,
   vend_max_productos INT NOT NULL,
@@ -24,7 +29,7 @@ CREATE TABLE "Vendedores" (
   CONSTRAINT vendedor_pk PRIMARY KEY ("id_vendedor")
 ) WITH (OIDS = FALSE);
 
-CREATE TABLE "Locales" (
+CREATE TABLE human."Locales" (
   id_local BIGSERIAL NOT NULL,
   id_vendedor BIGINT NOT NULL,
   loc_correo character varying(50) NOT NULL,
@@ -34,7 +39,7 @@ CREATE TABLE "Locales" (
   CONSTRAINT local_pk PRIMARY KEY ("id_local")
 ) WITH (OIDS = FALSE);
 
-CREATE TABLE "Clientes"(
+CREATE TABLE human."Clientes"(
   id_cliente BIGSERIAL NOT NULL,
   id_persona BIGINT NOT NULL,
   cli_fecha_nacimiento DATE NOT NULL,
@@ -42,7 +47,7 @@ CREATE TABLE "Clientes"(
   CONSTRAINT cliente_pk PRIMARY KEY ("id_cliente")
 ) WITH (OIDS = FALSE);
 
-CREATE TABLE "Calificaciones" (
+CREATE TABLE human."Calificaciones" (
   id_calificacion BIGSERIAL NOT NULL,
   id_cliente BIGINT NOT NULL,
   id_producto BIGINT NOT NULL,
@@ -51,7 +56,7 @@ CREATE TABLE "Calificaciones" (
   CONSTRAINT calificacion_pk PRIMARY KEY("id_calificacion")
 ) WITH (OIDS = FALSE);
 
-CREATE TABLE "Preferencias"(
+CREATE TABLE human."Preferencias"(
   id_preferencia BIGSERIAL NOT NULL,
   id_cliente BIGINT NOT NULL,
   id_categoria BIGINT NOT NULL,
@@ -60,7 +65,7 @@ CREATE TABLE "Preferencias"(
   CONSTRAINT preferencia_pk PRIMARY KEY("id_preferencia")
 ) WITH (OIDS = FALSE);
 
-CREATE TABLE "Recomendaciones" (
+CREATE TABLE human."Recomendaciones" (
   id_recomendacion BIGSERIAL NOT NULL,
   id_cliente BIGINT NOT NULL,
   recomendacion CHARACTER VARYING(255) NOT NULL,
@@ -68,7 +73,7 @@ CREATE TABLE "Recomendaciones" (
   CONSTRAINT recomendacion_pk PRIMARY KEY("id_recomendacion")
 ) WITH (OIDS = FALSE);
 
-CREATE TABLE "ProductosDeseados" (
+CREATE TABLE human."ProductosDeseados" (
   id_producto_deseado BIGSERIAL NOT NULL,
   id_cliente BIGINT NOT NULL,
   id_producto BIGINT NOT NULL,
@@ -77,7 +82,7 @@ CREATE TABLE "ProductosDeseados" (
   CONSTRAINT producto_deseado_pk PRIMARY KEY("id_producto_deseado")
 ) WITH (OIDS = FALSE);
 
-CREATE TABLE "TiposIdentificacion" (
+CREATE TABLE human."TiposIdentificacion" (
   id_tipo_identificacion INT NOT NULL,
   tiid_nombre CHARACTER VARYING(10),
   tiid_activo BOOLEAN NOT NULL DEFAULT 'true',
