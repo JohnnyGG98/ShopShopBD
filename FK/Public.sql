@@ -1,0 +1,1 @@
+ALTER TABLE "Usuarios" ADD CONSTRAINT "usuario_rol" FOREIGN KEY ("id_rol") REFERENCES "Roles"("id_rol") ON UPDATE CASCADE ON DELETE CASCADE;

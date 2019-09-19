@@ -1,5 +1,6 @@
 CREATE TABLE "Personas"(
   id_persona BIGSERIAL NOT NULL,
+  id_usuario INT NOT NULL,
   id_tipo_identificacion INT NOT NULL,
   per_primer_nombre character varying(75) NOT NULL,
   per_segundo_nombre character varying(75) DEFAULT '',
@@ -13,17 +14,10 @@ CREATE TABLE "Personas"(
   CONSTRAINT persona_pk PRIMARY KEY("id_persona")
 ) WITH (OIDS = FALSE);
 
-CREATE TABLE "Usuarios"(
-  id_usuario BIGSERIAL NOT NULL,
-  id_persona BIGINT NOT NULL,
-  user_nick character varying(50) NOT NULL UNIQUE,
-  user_pass bytea NOT NULL,
-  CONSTRAINT usuario_pk PRIMARY KEY("id_usuario")
-) WITH (OIDS = FALSE);
 
 CREATE TABLE "Vendedores" (
   id_vendedor BIGSERIAL NOT NULL,
-  id_usuario BIGINT NOT NULL,
+  id_persona BIGINT NOT NULL,
   vend_max_productos INT NOT NULL,
   vend_descripcion TEXT NOT NULL DEFAULT '',
   vend_activo BOOLEAN DEFAULT 'true',
@@ -42,7 +36,7 @@ CREATE TABLE "Locales" (
 
 CREATE TABLE "Clientes"(
   id_cliente BIGSERIAL NOT NULL,
-  id_usuario BIGINT NOT NULL,
+  id_persona BIGINT NOT NULL,
   cli_fecha_nacimiento DATE NOT NULL,
   cli_activo BOOLEAN DEFAULT 'true',
   CONSTRAINT cliente_pk PRIMARY KEY ("id_cliente")

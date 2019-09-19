@@ -244,3 +244,69 @@ CREATE TABLE "TiposIdentificacion" (
 
 ALTER TABLE "Personas" ADD COLUMN "id_tipo_identificacion" TYPE INT NOT NULL;
 ```
+
+**19/09/2019**
+
+Borrando la tabla de usuarios de human.
+
+```sql
+CREATE TABLE "Usuarios"(
+  id_usuario BIGSERIAL NOT NULL,
+  id_persona BIGINT NOT NULL,
+  user_nick character varying(50) NOT NULL UNIQUE,
+  user_pass bytea NOT NULL,
+  CONSTRAINT usuario_pk PRIMARY KEY("id_usuario")
+) WITH (OIDS = FALSE);
+```
+
+Agregando una foranea de usuario a persona.
+
+```sql
+id_usuario INT NOT NULL
+```
+
+Borrando las foraneas de usuario de cliente y vendedor y agregamos foraneas de persona.
+```sql
+-- Borrado
+id_usuario BIGINT NOT NULL
+-- Agregado
+id_persona BIGINT NOT NULL
+```
+
+Borramos la foranea de usuarios.
+```sql
+ALTER TABLE "Usuarios" ADD CONSTRAINT "usuario_persona" FOREIGN KEY ("id_usuario") REFERENCES
+"Personas"("id_persona") ON UPDATE CASCADE ON DELETE CASCADE;
+```
+
+Borramos roles admin y los permisos de esos roles.
+```sql
+CREATE TABLE "RolesAdmin"(
+  id_rol_admin BIGSERIAL NOT NULL,
+  rlad_nombre CHARACTER VARYING(25) NOT NULL,
+  rlad_activo BOOLEAN NOT NULL DEFAULT 'true',
+  CONSTRAINT rol_admin_pk PRIMARY KEY ("id_rol_admin")
+) WITH (OIDS = FALSE);
+
+
+CREATE TABLE "RolesRutas"(
+  id_rol_ruta SERIAL NOT NULL,
+  id_rol_admin INT NOT NULL,
+  id_ruta INT NOT NULL,
+  roru_activo BOOLEAN NOT NULL DEFAULT 'true',
+  CONSTRAINT rol_ruta_pk PRIMARY KEY ("id_rol_ruta")
+) WITH (OIDS = FALSE);
+```
+
+Borramos algunas columnas de Admins.
+
+```sql
+adm_user CHARACTER VARYING(255) NOT NULL
+adm_pass BYTEA NOT NULL
+```
+
+Agregamos una foranea a Admins.
+
+```sql
+id_usuario BIGINT NOT NULL
+```
