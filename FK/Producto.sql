@@ -29,8 +29,15 @@ ALTER TABLE "Comentarios" ADD CONSTRAINT "comentario_producto" FOREIGN KEY ("id_
 REFERENCES "Productos"("id_producto") ON UPDATE CASCADE ON DELETE CASCADE;
 
 
-ALTER TABLE "Cardex" ADD CONSTRAINT "cardex_producto" FOREIGN KEY ("id_producto")
+ALTER TABLE "Kardex" ADD CONSTRAINT "kardex_producto" FOREIGN KEY ("id_producto")
 REFERENCES "Productos"("id_producto") ON UPDATE CASCADE ON DELETE CASCADE;
 
-ALTER TABLE "Cardex" ADD CONSTRAINT "cardex_tipo_transaccion" FOREIGN KEY ("id_tipo_transaccion")
+ALTER TABLE "Kardex" ADD CONSTRAINT "kardex_tipo_transaccion" FOREIGN KEY ("id_tipo_transaccion")
 REFERENCES "TiposTransaccion"("id_tipo_transaccion") ON UPDATE CASCADE ON DELETE CASCADE;
+
+
+ALTER TABLE "Calificaciones" ADD CONSTRAINT "calificacion_cliente" FOREIGN KEY ("id_cliente") REFERENCES
+"Clientes"("id_cliente") ON UPDATE CASCADE ON DELETE CASCADE;
+
+ALTER TABLE "Calificaciones" ADD CONSTRAINT "calificacion_producto" FOREIGN KEY ("id_producto") REFERENCES
+"Productos"("id_producto") ON UPDATE CASCADE ON DELETE CASCADE;

@@ -47,15 +47,6 @@ CREATE TABLE human."Clientes"(
   CONSTRAINT cliente_pk PRIMARY KEY ("id_cliente")
 ) WITH (OIDS = FALSE);
 
-CREATE TABLE human."Calificaciones" (
-  id_calificacion BIGSERIAL NOT NULL,
-  id_cliente BIGINT NOT NULL,
-  id_producto BIGINT NOT NULL,
-  calificacion NUMERIC(2, 2),
-  cal_activo BOOLEAN DEFAULT 'true',
-  CONSTRAINT calificacion_pk PRIMARY KEY("id_calificacion")
-) WITH (OIDS = FALSE);
-
 CREATE TABLE human."Preferencias"(
   id_preferencia BIGSERIAL NOT NULL,
   id_cliente BIGINT NOT NULL,

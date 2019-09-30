@@ -310,3 +310,9 @@ Agregamos una foranea a Admins.
 ```sql
 id_usuario BIGINT NOT NULL
 ```
+
+**30/09/2019**
+
+Cambiando calificaciones al microservicio de productos!
+
+Arreglando la ortografia 'Kardex';

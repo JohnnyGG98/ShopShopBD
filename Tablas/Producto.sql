@@ -94,15 +94,15 @@ CREATE TABLE producto."Lineas" (
   CONSTRAINT linea_pk PRIMARY KEY ("id_linea")
 ) WITH (OIDS = FALSE);
 
-/* Creando el cardex de productos  */
-CREATE TABLE producto."Cardex" (
-  id_cardex BIGSERIAL NOT NULL,
+/* Creando el kardex de productos  */
+CREATE TABLE producto."Kardex" (
+  id_kardex BIGSERIAL NOT NULL,
   id_producto BIGINT NOT NULL,
   id_tipo_transaccion INT NOT NULL,
   capr_fecha_ingreso TIMESTAMP NOT NULL DEFAULT now(),
   capr_num_producto INT NOT NULL,
   capr_activo BOOLEAN NOT NULL DEFAULT 'true',
-  CONSTRAINT cardex_producto_pk PRIMARY KEY("id_producto_cardex")
+  CONSTRAINT kardex_producto_pk PRIMARY KEY("id_producto_kardex")
 ) WITH (OIDS = FALSE);
 
 CREATE TABLE producto."TiposTransaccion" (
@@ -111,4 +111,13 @@ CREATE TABLE producto."TiposTransaccion" (
   titr_codigo CHARACTER VARYING(5) NOT NULL,
   titr_activo BOOLEAN NOT NULL DEFAULT 'true'
   CONSTRAINT tipo_transaccion_pk PRIMARY KEY("id_tipo_transaccion")
+) WITH (OIDS = FALSE);
+
+CREATE TABLE producto."Calificaciones" (
+  id_calificacion BIGSERIAL NOT NULL,
+  id_cliente BIGINT NOT NULL,
+  id_producto BIGINT NOT NULL,
+  calificacion NUMERIC(2, 2),
+  cal_activo BOOLEAN DEFAULT 'true',
+  CONSTRAINT calificacion_pk PRIMARY KEY("id_calificacion")
 ) WITH (OIDS = FALSE);
