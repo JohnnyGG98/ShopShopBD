@@ -51,6 +51,7 @@ CREATE TABLE producto."Imagenes"
   id_imagen BIGSERIAL NOT NULL,
   id_producto BIGINT NOT NULL,
   ima_url character varying(255),
+  ima_principal BOOLEAN NOT NULL,
   ima_activo BOOLEAN DEFAULT 'true',
   CONSTRAINT imagen_pk PRIMARY KEY ("id_imagen")
 )

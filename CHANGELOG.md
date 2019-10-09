@@ -316,3 +316,10 @@ id_usuario BIGINT NOT NULL
 Cambiando calificaciones al microservicio de productos!
 
 Arreglando la ortografia 'Kardex';
+
+**08/10/2019**
+
+Agregamos  una columna para saber si la imagen es la principal. 
+```sql
+ima_principal BOOLEAN NOT NULL
+```
