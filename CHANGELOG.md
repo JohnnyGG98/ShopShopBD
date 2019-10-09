@@ -319,7 +319,15 @@ Arreglando la ortografia 'Kardex';
 
 **08/10/2019**
 
-Agregamos  una columna para saber si la imagen es la principal. 
+Agregamos  una columna para saber si la imagen es la principal.
 ```sql
 ima_principal BOOLEAN NOT NULL
+```
+
+**09/10/2019**
+
+Agregamos una columna para saber si el producto tiene iva. 
+
+```sql
+deve_tiene_iva BOOLEAN NOT NULL DEFAULT 'false'
 ```
