@@ -14,6 +14,7 @@ CREATE TABLE venta."Ventas"(
   vent_cliente_direccion CHARACTER VARYING(255) NOT NULL DEFAULT '',
   vent_fecha_ingreso TIMESTAMP NOT NULL DEFAULT now(),
   vent_subtotal NUMERIC(15, 5) NOT NULL DEFAULT 0,
+  vent_subtotal_sin_iva NUMERIC(15, 5) NOT NULL DEFAULT 0,
   vent_iva NUMERIC(5, 2) NOT NULL DEFAULT 12,
   vent_total NUMERIC(15, 5) NOT NULL DEFAULT 0,
   vent_activo BOOLEAN NOT NULL DEFAULT 'true',

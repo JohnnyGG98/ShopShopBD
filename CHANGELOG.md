@@ -326,8 +326,17 @@ ima_principal BOOLEAN NOT NULL
 
 **09/10/2019**
 
-Agregamos una columna para saber si el producto tiene iva. 
+Agregamos una columna para saber si el producto tiene iva.
 
 ```sql
 deve_tiene_iva BOOLEAN NOT NULL DEFAULT 'false'
+```
+
+**13/10/2019**
+
+Agregando subtotal cuando tiene iva y cuando no tiene iva en venta;
+
+```sql
+vent_subtotal_iva NUMERIC(15, 5) NOT NULL DEFAULT 0
+vent_subtotal_sin_iva NUMERIC(15, 5) NOT NULL DEFAULT 0
 ```
