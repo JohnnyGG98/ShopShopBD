@@ -340,3 +340,17 @@ Agregando subtotal cuando tiene iva y cuando no tiene iva en venta;
 vent_subtotal_iva NUMERIC(15, 5) NOT NULL DEFAULT 0
 vent_subtotal_sin_iva NUMERIC(15, 5) NOT NULL DEFAULT 0
 ```
+
+**14/10/2019**
+
+Cambiamos el tipo de dato de usuario a String para poder usar el encrypt de Spring.
+
+```sql
+user_pass character varying(100) NOT NULL
+```
+
+Agregamos un columna para saber el tipo de usuario  
+
+```sql
+user_tipo character varying(1) NOT NULL
+```
