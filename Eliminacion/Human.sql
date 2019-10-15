@@ -19,7 +19,7 @@ BEGIN
 END;
 $personas_elim$ LANGUAGE plpgsql;
 
-CREATE TRIGGER persponas_eliminada
+CREATE TRIGGER personas_eliminada
 BEFORE UPDATE OF personas_elim
 ON public."Personas" FOR EACH ROW
 EXECUTE PROCEDURE personas_elim();

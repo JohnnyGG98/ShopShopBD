@@ -354,3 +354,33 @@ Agregamos un columna para saber el tipo de usuario
 ```sql
 user_tipo character varying(1) NOT NULL
 ```
+
+**15/10/2019**
+
+Agregando direccion a personas.
+
+```sql
+per_direccion character varying(200) DEFAULT '',
+per_telefono character varying(20) DEFAULT ''
+```
+
+Borramos datos de contacto de venta.
+
+```sql
+vent_cliente_celular CHARACTER VARYING(15) NOT NULL DEFAULT ''
+```
+
+Cambiamos el nombre de la columna.
+
+```sql
+-- Antes
+vent_subtotal NUMERIC(15, 5) NOT NULL DEFAULT 0
+-- Ahora
+vent_subtotal_iva NUMERIC(15, 5) NOT NULL DEFAULT 0
+```
+
+Agregamos una columna para  guardar el total del iva en nuestra venta.
+
+```sql
+vent_total_iva NUMERIC(8, 2) NOT NULL DEFAULT 0
+```

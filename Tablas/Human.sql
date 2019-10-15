@@ -13,6 +13,8 @@ CREATE TABLE human."Personas"(
   per_segundo_apellido character varying(75) DEFAULT '',
   per_identificacion character varying(15) NOT NULL,
   per_correo character varying(50) NOT NULL,
+  per_direccion character varying(200) DEFAULT '',
+  per_telefono character varying(20) DEFAULT '',
   per_sexo character varying(50) NOT NULL,
   per_fecha_registro TIMESTAMP DEFAULT now(),
   per_activo BOOLEAN DEFAULT 'true',
