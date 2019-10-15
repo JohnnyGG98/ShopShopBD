@@ -326,8 +326,22 @@ ima_principal BOOLEAN NOT NULL
 
 **09/10/2019**
 
-Agregamos una columna para saber si el producto tiene iva. 
+Agregamos una columna para saber si el producto tiene iva.
 
 ```sql
 deve_tiene_iva BOOLEAN NOT NULL DEFAULT 'false'
+```
+
+**14/10/2019**
+
+Cambiamos el tipo de dato de usuario a String para poder usar el encrypt de Spring.
+
+```sql
+user_pass character varying(100) NOT NULL
+```
+
+Agregamos un columna para saber el tipo de usuario  
+
+```sql
+user_tipo character varying(1) NOT NULL
 ```
