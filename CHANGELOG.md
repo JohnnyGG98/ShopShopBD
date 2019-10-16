@@ -384,3 +384,9 @@ Agregamos una columna para  guardar el total del iva en nuestra venta.
 ```sql
 vent_total_iva NUMERIC(8, 2) NOT NULL DEFAULT 0
 ```
+
+Eliminamos la foranea de rol en Usuarios.
+
+```sql
+id_rol INT NOT NULL
+```
